@@ -1,0 +1,48 @@
+{
+  "name": "NorthwindMicro (Microservices + Azure Service Bus)",
+
+  // Multi-container setup: app container + SQL Server sidecar
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+
+  // Forward container ports to Windows so the browser can reach them
+  "forwardPorts": [5020, 5021, 5022, 1433],
+  "portsAttributes": {
+    "5020": {
+      "label": "ApiGateway (YARP)",
+      "onAutoForward": "notify"
+    },
+    "5021": {
+      "label": "OrderService",
+      "onAutoForward": "notify"
+    },
+    "5022": {
+      "label": "InventoryService",
+      "onAutoForward": "notify"
+    },
+    "1433": {
+      "label": "SQL Server",
+      "onAutoForward": "silent"
+    }
+  },
+
+  // Runs once after the container first starts — installs tools + creates databases
+  "postCreateCommand": "bash /workspace/.devcontainer/post-create.sh",
+
+  "remoteUser": "vscode",
+
+  // VS Code extensions installed automatically inside the container
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        "ms-mssql.mssql"
+      ],
+      "settings": {
+        "dotnet.defaultSolution": "NorthwindMicro.slnx"
+      }
+    }
+  }
+}

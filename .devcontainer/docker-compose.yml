@@ -1,0 +1,38 @@
+services:
+
+  # ── App container ─────────────────────────────────────────────────────────
+  # All 3 services (ApiGateway, OrderService, InventoryService) run inside
+  # this single container. Start each in a separate VS Code terminal.
+  app:
+    image: mcr.microsoft.com/devcontainers/dotnet:1-8.0
+    volumes:
+      - ..:/workspace:cached          # bind-mount project root into /workspace
+    command: sleep infinity           # keeps container alive; VS Code runs commands inside
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      # OrderService DB — overrides appsettings.Development.json value
+      ConnectionStrings__MicroOrdersConnection: "Server=db,1433;Database=MicroOrders;User Id=sa;Password=${SA_PASSWORD:-YourStrong!Passw0rd};TrustServerCertificate=True;"
+      # InventoryService DB
+      ConnectionStrings__MicroInventoryConnection: "Server=db,1433;Database=MicroInventory;User Id=sa;Password=${SA_PASSWORD:-YourStrong!Passw0rd};TrustServerCertificate=True;"
+      # Azure Service Bus — loaded from .devcontainer/.env (gitignored)
+      # Double-underscore (__) maps to nested config: AzureServiceBus.ConnectionString
+      AzureServiceBus__ConnectionString: "${AZURE_SERVICE_BUS_CONNECTION_STRING}"
+      AzureServiceBus__QueueName: "order-placed"
+    depends_on:
+      - db
+
+  # ── SQL Server 2022 sidecar ───────────────────────────────────────────────
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "${SA_PASSWORD:-YourStrong!Passw0rd}"
+      MSSQL_PID: Developer             # free Developer edition
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqldata:/var/opt/mssql         # persists database files between container restarts
+
+volumes:
+  sqldata:

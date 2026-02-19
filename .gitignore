@@ -1,0 +1,20 @@
+# ── .NET ──────────────────────────────────────────
+ApiGateway/bin/
+ApiGateway/obj/
+OrderService/bin/
+OrderService/obj/
+InventoryService/bin/
+InventoryService/obj/
+*.user
+.vs/
+
+# ── Dev Container secrets ─────────────────────────
+.devcontainer/.env        # copy of .env.example with real connection strings — never commit
+
+# ── Claude Code ───────────────────────────────────
+.claude/
+
+# ── OS / Editor ───────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
