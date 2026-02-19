@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{CC14FA8F-34A6-4B17-BCA6-5B9E8376B7AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService", "OrderService\OrderService.csproj", "{4E142EF6-7721-4C88-980D-C276A7C58201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService", "InventoryService\InventoryService.csproj", "{F8EF2C8F-9646-4045-9C59-C8874BCC3FE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC14FA8F-34A6-4B17-BCA6-5B9E8376B7AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC14FA8F-34A6-4B17-BCA6-5B9E8376B7AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC14FA8F-34A6-4B17-BCA6-5B9E8376B7AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC14FA8F-34A6-4B17-BCA6-5B9E8376B7AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E142EF6-7721-4C88-980D-C276A7C58201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E142EF6-7721-4C88-980D-C276A7C58201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E142EF6-7721-4C88-980D-C276A7C58201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E142EF6-7721-4C88-980D-C276A7C58201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8EF2C8F-9646-4045-9C59-C8874BCC3FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8EF2C8F-9646-4045-9C59-C8874BCC3FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8EF2C8F-9646-4045-9C59-C8874BCC3FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8EF2C8F-9646-4045-9C59-C8874BCC3FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -41,7 +41,7 @@
         "ms-mssql.mssql"
       ],
       "settings": {
-        "dotnet.defaultSolution": "NorthwindMicro.slnx"
+        "dotnet.defaultSolution": "NorthwindMicro.sln"
       }
     }
   }
