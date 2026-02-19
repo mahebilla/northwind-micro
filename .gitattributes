@@ -1,0 +1,19 @@
+# Normalize all text files to LF on commit (prevents CRLF breaking bash scripts in Linux containers)
+* text=auto eol=lf
+
+# Shell scripts must always be LF — CRLF breaks bash inside Linux containers
+*.sh text eol=lf
+
+# SQL scripts — LF for consistency inside container
+*.sql text eol=lf
+
+# Windows batch files keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files — no line ending conversion
+*.png binary
+*.jpg binary
+*.ico binary
+*.dll binary
+*.exe binary
